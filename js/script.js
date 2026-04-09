@@ -2,6 +2,9 @@ async function getWeather() {
     const location = document.getElementById('locationInput').value;
     const apiKey = "d9f588f23e944e0bb6a182418260804";
 
+    document.getElementById('errorMessage').innerHTML = "";
+
+    
     if (!location) {
         alert("Please enter a location.");
         return;
