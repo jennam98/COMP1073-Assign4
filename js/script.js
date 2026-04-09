@@ -4,7 +4,7 @@ async function getWeather() {
 
     document.getElementById('errorMessage').innerHTML = "";
 
-    
+
     if (!location) {
         alert("Please enter a location.");
         return;
@@ -18,7 +18,9 @@ async function getWeather() {
             document.getElementById('errorMessage').innerHTML = `<p>${data.error.message}</p>`;
             return;
         } else {
-            document.getElementById('locationName').innerHTML = `<h2>${location}</h2>`;
+            document.getElementById('locationName').innerHTML = 
+            `<h2>${location}</h2>
+            <p>${data.location.region}, ${data.location.country}</p>`;
         }
 
     } catch (error) {
