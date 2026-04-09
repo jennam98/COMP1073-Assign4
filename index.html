@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <script src="js/script.js">defer</script>
+    <script src="js/script.js" defer></script>
 
 <body>
     <header>
@@ -12,6 +12,9 @@
            
         <input type="text" id="locationInput" placeholder="Enter location">
         <button onclick="getWeather()">Search</button>
+
+        <div id="errorMessage"></div>
+        <div id="locationName"></div>
    
     </header>
 
