@@ -20,7 +20,8 @@ async function getWeather() {
         } else {
             document.getElementById('locationName').innerHTML = 
             `<h2>${location}</h2>
-            <p>${data.location.region}, ${data.location.country}</p>`;
+<p>${data.location.region}, ${data.location.country}</p>
+            <img src="${data.current.condition.icon}" alt="Weather Icon">`;
         }
 
     } catch (error) {
