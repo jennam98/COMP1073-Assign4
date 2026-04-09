@@ -1,0 +1,13 @@
+
+Setting up API:
+
+
+- Looked up free weather api's and found https://www.weatherapi.com
+
+- Signed up to account to get API key.
+
+    (API Key: d9f588f23e944e0bb6a182418260804)
+
+- Used API Explorer to figure out how to pull data from api.
+    ex. Searching for Barrie Weather
+    http://api.weatherapi.com/v1/current.json?key=(APIKEY)&q=(Location)&aqi=no
