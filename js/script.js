@@ -60,7 +60,7 @@ async function getWeather() {
     }
     // Fetch weather data from the API -JM
     try {
-        const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`);
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${encodeURIComponent(location)}&days=7&aqi=no&alerts=no`);
         const data = await response.json();
         // Check if the API returned an error -JM
         if (data.error) {
@@ -78,7 +78,50 @@ async function getWeather() {
     } catch (error) {
         document.getElementById('errorMessage').innerHTML = "<p>Error fetching data</p>";
     }
+}
 
+// function to display the main weather data on the page
+function displayWeather(data) {
+    const current = data.current;
+    const location = data.location;
+    const forecastDays = data.forecast.forecastDays;
+
+    // hide the welcome section and show the weather section
+    welcomeCard.classList.add("hidden");
+    locationSection.classList.remove("hidden");
+    currentWeatherSection.classList.remove("hidden");
+    insightSection.classList.remove("hidden");
+    forecastSection.classList.remove("hidden");
+
+    // display location name and local time
+    locationName.textContent = `${location.name}, ${location.region}, ${location.country}`;
+    localTime.textContent = `Local time: ${location.localtime}`;
+
+    // display weather icon and condition text
+    conditionIcon.src = `https:${current.condition.icon}`;
+    conditionIcon.alt = current.condition.text;
+    conditionText.textContent = current.condition.text;
+
+    //display current weather values
+    temperature.textContent = `${current.temp_c}°C`;
+    feelsLike.textContent = `Feels like ${current.feelslike_c}°C`;
+    humidity.textContent = `${current.humidity}%`;
+    wind.textContent = `${current.wind_kph} kph`;
+    uv.textContent = current.uv;
+    pressure.textContent = `${current.pressure_mb} mb`;
+
+    // display today's astronomy and forecast values
+    sunrise.textContent = forecastDays[0].astro.sunrise;
+    sunset.textContent = forecastDays[0].astro.sunset;
+    chanceOfRain.textContent = `${forecastDays[0].day.daily_chance_of_rain}%`;
+    maxMin.textContent = `${forecastDays[0].day.maxtemp_c}°C / ${forecastDays[0].day.mintemp_c}°C`;
+
+    // generate a custom suggestion based on today's weather
+    weatherInsight.textContent = generateInsight(current, forecastDays[0]);
+
+    // Create the 7-day forecast cards
+    renderForecast(forecastDays);
+}
     // show weather details like temperature and condition
     document.getElementById("todaysWeather").innerHTML = `
     <p>Temperature: ${data.current.temp_c} °C</p>
@@ -94,4 +137,4 @@ async function getWeather() {
       } else if (condition.includes("cloud")) {
         document.body.style.background = "linear-gradient(to right, #bdc3c7, #2c3e50)";
       }
-}
+
