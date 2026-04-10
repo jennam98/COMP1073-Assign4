@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>SkyScoope Weather Dashboard</title>
     <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="css/styles.css">
-
-<body>
-    <header>
-        <h1>Weather App</h1>
+</head>
+<body class="default-theme">
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>SkyScoope</h1>
+            <p class="tagline">A creative weather dashboard powered by WeatherAPI</p>
            
-        <input type="text" id="locationInput" placeholder="Enter location">
-        <button onclick="getWeather()">Search</button>
+            <input type="text" id="locationInput" placeholder="Enter location">
+            <button onclick="getWeather()">Search</button>
 
-        <div id="errorMessage"></div>
-        <div id="locationName"></div>
+            <div id="errorMessage"></div>
+            <div id="locationName"></div>
    
     </header>
 
