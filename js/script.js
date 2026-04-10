@@ -48,7 +48,7 @@ async function getWeather() {
     // Get the location from the input field -JM
     const location = document.getElementById('locationInput').value;
     //API Key for WeatherAPI -JM
-    const apiKey = "93283d31d0df4d12aca193116262003";
+    const apiKey = "d9f588f23e944e0bb6a182418260804";
 
     // Clear previous error messages -JM
     document.getElementById('errorMessage').innerHTML = "";
@@ -187,7 +187,27 @@ function generateInsight(current, todayForecast) {
     return "The weather looks comfortable today. A nice day to be outside and enjoy the forecast.";
 }
 // function to change the page theme deoending on the weather condition
-function updateTheme(data) {}
+function updateTheme(data) {
+    const current = data.current;
+    const condition = current.condition.text.toLowerCase();
+    const isDay = current.is_day;
+
+    // clear existing theme classes from the body
+    document.body.className = "";
+
+    // Add a theme class based on time of day and condition
+    if (!isDay) {
+        document.body.classList.add("night-theme");
+    } else if (condition.includes("sunny") || condition.includes("clear")) {
+        document.body.classList.add("sunny-theme");
+    } else if (condition.includes("rain") || condition.includes("drizzle") || condition.includes("thunder")) {
+        document.body.classList.add("rainy-theme");
+    } else if (condition.includes("cloud") || condition.includes("overcast") || condition.includes("mist")) {
+        document.body.classList.add("cloudy-theme");
+    } else {
+        document.body.classList.add("default-theme");
+    }
+}
 // function to hide all weather result section when there is an error
 function hideWeatherSections() {}
 // function to save the latest search into localStorage
