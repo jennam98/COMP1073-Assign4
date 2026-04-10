@@ -5,9 +5,14 @@ body{
     text-align: center;
     background-color: azure;
 }
-
+/*main title*/
 h1{
     margin: 35px;
     color:darkcyan;
+}
+
+input{
+    padding: 5px;
+    
 }
 
