@@ -132,8 +132,31 @@ function updateTheme(data) {}
 // function to hide all weather result section when there is an error
 function hideWeatherSections() {}
 // function to save the latest search into localStorage
-function saveRecentSearch(location) {}
-// function to load and display recent searches from localStorage
+
+
+
+//Function to save recent searches in local storage -JM
+function saveRecentSearch(location) {
+    // Get existing searches from localStorage or initialize an empty array -JM
+    let searches = JSON.parse(localStorage.getItem("recentSearches")) || [];
+
+    recentSearches.innerHTML = ""; // Clear previous recent searches
+    // Add the new location to the beginning of the array -JM
+    searches.forEach(loc => {
+        const searchItem = document.createElement("p");
+        
+        searchItem.textContent = loc;
+        //Add event listener for each recent search 
+        searchItem.addEventListener("click", () => {
+            locationInput.value = loc;
+            getWeather();
+        });
+        // Append the search item to the recent searches container -JM
+        recentSearches.appendChild(searchItem);
+    });
+    
+}
+
 function loadRecentSearches() {}
 
     // show weather details like temperature and condition
