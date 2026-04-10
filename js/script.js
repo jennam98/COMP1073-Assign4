@@ -122,6 +122,20 @@ function displayWeather(data) {
     // Create the 7-day forecast cards
     renderForecast(forecastDays);
 }
+
+// function to create forecast cards for each returned day
+function renderForecast(days) {}
+// function to generate a helpful weather suggestion 
+function generateInsight(current, todayForecast) {}
+// function to change the page theme deoending on the weather condition
+function updateTheme(data) {}
+// function to hide all weather result section when there is an error
+function hideWeatherSections() {}
+// function to save the latest search into localStorage
+function saveRecentSearch(location) {}
+// function to load and display recent searches from localStorage
+function loadRecentSearches() {}
+
     // show weather details like temperature and condition
     document.getElementById("todaysWeather").innerHTML = `
     <p>Temperature: ${data.current.temp_c} °C</p>
