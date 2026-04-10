@@ -33,4 +33,13 @@ async function getWeather() {
     } catch (error) {
         document.getElementById('errorMessage').innerHTML = "<p>Error fetching data</p>";
     }
+
+    // show weather details like temperature and condition
+    document.getElementById("todaysWeather").innerHTML = `
+    <p>Temperature: ${data.current.temp_c} °C</p>
+    <p>Condition: ${data.current.condition.text}</p>
+    <p>Humidity: ${data.current.humidity}%</p>
+    <p>Wind: ${data.current.wind_kph} kph</p>
+`;
+    
 }
