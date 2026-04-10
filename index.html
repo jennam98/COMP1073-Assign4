@@ -13,16 +13,40 @@
         <div class="hero-content">
             <h1>SkyScoope</h1>
             <p class="tagline">A creative weather dashboard powered by WeatherAPI</p>
-           
-            <input type="text" id="locationInput" placeholder="Enter location">
-            <button onclick="getWeather()">Search</button>
+        
+            <div class="search-bar">
+                <input type="text" id="locationInput" placeholder="Enter location">
+                <button onclick="getWeather()">Search</button>
+            </div>
+            
+            <div class="quick-searches">
+                <button class="quick-btn" data-city="Barrie">Barrie</button>
+                <button class="quick-btn" data-city="Toronto">Toronto</button>
+                <button class="quick-btn" data-city="Vancouver">Vancouver</button>
+                <button class="quick-btn" data-city="Ottawa">Ottawa</button>
+            </div>
 
-            <div id="errorMessage"></div>
-            <div id="locationName"></div>
-   
+            <p id="errorMessage" class="error-message"></p>
+        </div>
     </header>
 
- 
+    <main class="container">
+        <section id="welcomeCard" class="card welcome-card">
+            <h2>Check the weather anywhere</h2>
+            <p>
+                Search for a city to see current weather, a 3-day forecast, and suggestions
+                based on the conditions.
+            </p>
+            <p class="doc-link">
+                Documentation used:
+                <a href="https://www.weatherapi.com/docs/" target="_blank" rel="noopener noreferrer">
+                    WeatherAPI Documentation
+                </a>"
+            </p>
+        </section>
+
+        
+    </main>
 
     <div id="todaysWeather"></div>
     <div id="weeklyForecast"></div>
