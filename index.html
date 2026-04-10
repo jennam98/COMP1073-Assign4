@@ -62,3 +62,52 @@
     </footer>
 </body>
 </html>
+
+<section id="locationSection" class="card hidden">
+    <div class="location-header">
+        <div>
+            <h2 id="locationName">Location</h2>
+            <p id="localTime">Local time:</p>
+        </div>
+        <div class="condition-badge">
+            <img id="conditionIcon" src="" alt="Weather icon">
+            <span id="conditionText">Condition</span>
+        </div>
+    </div>
+    <section id="currentWeatherSection" class="grid hidden">
+        <div class="card current-card">
+            <h3>Current Weather</h3>
+            <div class="temp-row">
+                <p id="temperature" class="big-temp">--°C</p>
+                <p id="feelsLike" class="feels-like">Feels like --°C</p>
+            </div>
+            <div class="details-grid">
+                <div class="detail-box">
+                    <span>Humidity</span>
+                    <strong id="humidity">--%</strong>
+                </div>
+                <div class="detail-box">
+                    <span>Wind</span>
+                    <strong id="wind">-- kph</strong>
+                </div>
+                <div class="detail-box">
+                    <span>UV Index</span>
+                    <strong id="uv">--</strong>
+                </div>
+                <div class="detail-box">
+                    <span>Air Pressure</span>
+                    <strong id="pressure">-- mb</strong>
+                </div>
+            </div>
+        <div class="card astro-card">
+            <h3>Sun & Daylight</h3>
+            <div class="astro-details">
+                <p><strong>Sunrise:</strong> <span id="sunrise">--</span></p>
+                <p><strong>Sunset:</strong> <span id="sunset">--</span></p>
+                <p><strong>Chance of Rain:</strong> <span id="chanceOfRain">--%</span></p>
+                <p><strong>Max / Min:</strong> <span id="maxMin">-- / --</span></p>
+            </div>
+        </div>
+    </section>
+
+</section>
