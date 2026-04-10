@@ -3,22 +3,27 @@ body{
     margin: 0%;
     padding: 0%;
     text-align: center;
-    background-color: azure;
+    background-color: #f0ffff;
+    font-size: larger;
 }
 /*main title*/
 h1{
     margin: 35px;
     color:darkcyan;
+    
 }
 
 input{
-    padding: 5px;
+    padding: 10px;
+    font-size: larger;
+    font-style: italic;
 
 }
 /* button style*/
 
 button{
-    padding: 5px 5px;
+    padding: 10px 10px;
     cursor: pointer;
+    font-size: larger;
 }
 
