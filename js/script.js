@@ -48,7 +48,7 @@ async function getWeather() {
     // Get the location from the input field -JM
     const location = document.getElementById('locationInput').value;
     //API Key for WeatherAPI -JM
-    const apiKey = "d9f588f23e944e0bb6a182418260804";
+    const apiKey = "93283d31d0df4d12aca193116262003";
 
     // Clear previous error messages -JM
     document.getElementById('errorMessage').innerHTML = "";
@@ -152,7 +152,40 @@ function renderForecast(days) {
     });
 }
 // function to generate a helpful weather suggestion 
-function generateInsight(current, todayForecast) {}
+function generateInsight(current, todayForecast) {
+    const condition = current.condition.text.toLowerCase();
+    const temp = current.temp_c;
+    const rainChance = todayForecast.day.daily_chance_of_rain;
+    const uvLevel = current.uv;
+
+    // different suggestions depending on the weather
+    if (condition.includes("rain") || rainChance >= 60) {
+        return "Looks like a rainy day. Bring an umbrella, wear waterproof shoes, and maybe plan an indoor activity.";
+    }
+
+    if (condition.includes("snow")) {
+        return "Snow is expected. Dress warmly, drive carefully, and bundle up before heading out.";
+    }
+
+    if (temp >= 28) {
+        return "It is quite hot outside. Wear light clothing, stay hydrated, and try to avoid too much direct sun.";
+    }
+
+    if (temp <= 5) {
+        return "It is pretty cold today. A warm jacket, layers, and maybe a hot drink would be a good idea.";
+    }
+
+    if (uvLevel >= 6) {
+        return "The UV index is high. Sunscreen and sunglasses would be smart, even if it does not feel extremely hot.";
+    }
+
+    if (condition.includes("cloud")) {
+        return "Cloudy but manageable. Great weather for a walk, errands, or a casual day out.";
+    }
+
+    // default message if none of the conditions above match
+    return "The weather looks comfortable today. A nice day to be outside and enjoy the forecast.";
+}
 // function to change the page theme deoending on the weather condition
 function updateTheme(data) {}
 // function to hide all weather result section when there is an error
