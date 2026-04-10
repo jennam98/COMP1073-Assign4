@@ -134,9 +134,13 @@ function hideWeatherSections() {}
 // function to save the latest search into localStorage
 
 
+// function to save the latest search into localStorage -JM
+function saveRecentSearches() {
 
-//Function to save recent searches in local storage -JM
-function saveRecentSearch(location) {
+}
+
+//Function to load recent searches -JM
+function loadRecentSearch(location) {
     // Get existing searches from localStorage or initialize an empty array -JM
     let searches = JSON.parse(localStorage.getItem("recentSearches")) || [];
 
@@ -157,7 +161,8 @@ function saveRecentSearch(location) {
     
 }
 
-function loadRecentSearches() {}
+
+}
 
     // show weather details like temperature and condition
     document.getElementById("todaysWeather").innerHTML = `
