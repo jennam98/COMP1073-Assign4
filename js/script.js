@@ -74,6 +74,8 @@ async function getWeather() {
             <img src="${data.current.condition.icon}" alt="Weather Icon">`;
             
             saveRecentSearches(location); // Save the search to localStorage -JM
+            displayWeather(data); // Display the weather data on the page -JM
+            updateTheme(data); // Update the page theme based on the weather condition -JM
         }
         
     // Handle any errors during fetching -JM       
@@ -86,7 +88,7 @@ async function getWeather() {
 function displayWeather(data) {
     const current = data.current;
     const location = data.location;
-    const forecastDays = data.forecast.forecastDays;
+    const forecastDays = data.forecast.forecastday;
 
     // hide the welcome section and show the weather section
     welcomeCard.classList.add("hidden");

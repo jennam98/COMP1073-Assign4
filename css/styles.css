@@ -71,6 +71,7 @@ body.night-theme {
     gap: 10px;
     flex-wrap: wrap;
     margin-bottom: 18px;
+    position: relative;
 }
 
 .search-bar input {
@@ -95,6 +96,10 @@ body.night-theme {
 .search-bar button:hover, .recent-btn:hover {
     transform: translateY(-2px);
     opacity: 0.92;
+}
+
+#forecastSection {
+    margin-bottom: 30px;
 }
 
 .search-bar button {
@@ -253,12 +258,33 @@ body.night-theme {
     margin: 6px 0;
 }
 
+
+
+
+
+
 .recent-search-list {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     margin-top: 12px;
+    padding: 10px;
 }
+
+#recentSearches p {
+    padding: 8px 12px;
+    margin: 6px 0;
+    background: #f3f3f3;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#recentSearches p:hover {
+    background: #e0e0e0;
+}
+
+
 
 .empty-text {
     opacity: 0.8;
@@ -294,3 +320,4 @@ body.night-theme {
         max-width: 420px;
     }
 }
+
