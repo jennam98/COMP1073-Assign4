@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
     // load any recent searches from localStorage
-    loadRecentSearch();
+    loadRecentSearches();
 });
 
 async function getWeather() {
