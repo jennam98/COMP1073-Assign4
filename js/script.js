@@ -126,9 +126,66 @@ function displayWeather(data) {
 }
 
 // function to create forecast cards for each returned day
-function renderForecast(days) {}
+function renderForecast(days) {
+    // clean any previous forecast cards
+    weeklyForecast.innerHTML = "";
+
+    days.forEach(day => {
+        const date = new Date(day.date + "T00:00:00");
+        const weekday = date.toLocaleDateString("en-CA", { weekday: "long" });
+
+        const forecastCard = document.createElement("div");
+        forecastCard.classList.add("forecast-card");
+
+        // fill the card with forecast information
+        forecastCard.innerHTML = `
+            <h4>${weekday}</h4>
+            <p>${day.date}</p>
+            <img src="https:${day.day.condition.icon}" alt="${day.day.condition.text}">
+            <p><strong>${day.day.condition.text}</strong></p>
+            <p>High: ${day.day.maxtemp_c}°C</p>
+            <p>Low: ${day.day.mintemp_c}°C</p>
+            <p>Rain Chance: ${day.day.daily_chance_of_rain}%</p>    
+        `;
+
+        weeklyForecast.appendChild(forecastCard);
+    });
+}
 // function to generate a helpful weather suggestion 
-function generateInsight(current, todayForecast) {}
+function generateInsight(current, todayForecast) {
+    const condition = current.condition.text.toLowerCase();
+    const temp = current.temp_c;
+    const rainChance = todayForecast.day.daily_chance_of_rain;
+    const uvLevel = current.uv;
+
+    // different suggestions depending on the weather
+    if (condition.includes("rain") || rainChance >= 60) {
+        return "Looks like a rainy day. Bring an umbrella, wear waterproof shoes, and maybe plan an indoor activity.";
+    }
+
+    if (condition.includes("snow")) {
+        return "Snow is expected. Dress warmly, drive carefully, and bundle up before heading out.";
+    }
+
+    if (temp >= 28) {
+        return "It is quite hot outside. Wear light clothing, stay hydrated, and try to avoid too much direct sun.";
+    }
+
+    if (temp <= 5) {
+        return "It is pretty cold today. A warm jacket, layers, and maybe a hot drink would be a good idea.";
+    }
+
+    if (uvLevel >= 6) {
+        return "The UV index is high. Sunscreen and sunglasses would be smart, even if it does not feel extremely hot.";
+    }
+
+    if (condition.includes("cloud")) {
+        return "Cloudy but manageable. Great weather for a walk, errands, or a casual day out.";
+    }
+
+    // default message if none of the conditions above match
+    return "The weather looks comfortable today. A nice day to be outside and enjoy the forecast.";
+}
 // function to change the page theme deoending on the weather condition
 function updateTheme(data) {}
 // function to hide all weather result section when there is an error
