@@ -4,14 +4,36 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 0%;
-    padding: 0%;
-    text-align: center;
-    background-color: #f0ffff;
-    font-size: larger;
+    min-height: 100vh;
+    color: #1f2937;
+    transition: background 0.4s ease, color 0.4s ease;
 }
+
+body.default-theme {
+    background: linear-gradient(135deg, #dbeafe, #eff6ff, #f8fafc);
+}
+
+body.sunny-theme {
+    background: linear-gradient(135deg, #fef3c7, #fde68a, #fca5a5);
+}
+
+body.cloudy-theme {
+    background: linear-gradient(135deg, #d1d6db, #e5e7eb, #f3f4f6);
+}
+
+body.rainy-theme {
+    background: linear-gradient(135deg, #93c5fd, #60a5fa, #1d4ed8);
+    color: #ffffff;
+}
+
+body.night-theme {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+    color: #ffffff;
+}
+
+
 /*main title*/
 h1{
     margin: 35px;
