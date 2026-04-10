@@ -253,3 +253,19 @@ function loadRecentSearches() {
     });
     
 }
+
+    // show weather details like temperature and condition
+   // document.getElementById("todaysWeather").innerHTML = `
+   // <p>Temperature: ${data.current.temp_c} °C</p>
+   // <p>Condition: ${data.current.condition.text}</p>
+   // <p>Humidity: ${data.current.humidity}%</p>
+   // <p>Wind: ${data.current.wind_kph} kph</p>
+    //`;
+    // change color background according to weather condition
+   // if (condition.includes("sun")) {
+    //    document.body.style.background = "linear-gradient(to right, #fceabb, #f8b500)";
+    //  } else if (condition.includes("rain")) {
+    //    document.body.style.background = "linear-gradient(to right, #4e54c8, #8f94fb)";
+    //  } else if (condition.includes("cloud")) {
+    //    document.body.style.background = "linear-gradient(to right, #bdc3c7, #2c3e50)";
+    //  }
