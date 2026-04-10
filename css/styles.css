@@ -237,3 +237,60 @@ body.night-theme {
     box-shadow: 0 8px 20px rgb(0, 0, 0, 0.08);
     text-align: center;
 }
+
+.rainy-theme .forecast-card, .night-theme .forecast-card {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+.forecast-card img {
+    width: 64px;
+    height: 64px;
+    margin: 10px 0;
+}
+
+.forecast-card p {
+    margin: 6px 0;
+}
+
+.recent-search-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.empty-text {
+    opacity: 0.8;
+}
+
+.footer {
+    text-align: center;
+    padding: 25px 15px 35px;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 700px) {
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .location-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-bar input, .search-bar button {
+        width: 100%;
+        max-width: 420px;
+    }
+}
