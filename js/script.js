@@ -41,5 +41,12 @@ async function getWeather() {
     <p>Humidity: ${data.current.humidity}%</p>
     <p>Wind: ${data.current.wind_kph} kph</p>
 `;
-    
+    // change color background according to weather condition
+if (data.current.condition.text.includes("Sunny")) {
+    document.body.style.backgroundColor = "lightyellow";
+  } else if (data.current.condition.text.includes("Rain")) {
+    document.body.style.backgroundColor = "lightblue";
+  } else {
+    document.body.style.backgroundColor = "lightgray";
+  }
 }
