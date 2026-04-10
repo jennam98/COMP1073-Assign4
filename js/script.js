@@ -209,9 +209,12 @@ function updateTheme(data) {
     }
 }
 // function to hide all weather result section when there is an error
-function hideWeatherSections() {}
-// function to save the latest search into localStorage
-
+function hideWeatherSections() {
+    locationSection.classList.add("hidden");
+    currentWeatherSection.classList.add("hidden");
+    insightSection.classList.add("hidden");
+    forecastSection.classList.add("hidden");
+}
 
 // function to save the latest search into localStorage -JM
 function saveRecentSearches(location) {
