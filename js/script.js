@@ -126,7 +126,31 @@ function displayWeather(data) {
 }
 
 // function to create forecast cards for each returned day
-function renderForecast(days) {}
+function renderForecast(days) {
+    // clean any previous forecast cards
+    weeklyForecast.innerHTML = "";
+
+    days.forEach(day => {
+        const date = new Date(day.date + "T00:00:00");
+        const weekday = date.toLocaleDateString("en-CA", { weekday: "long" });
+
+        const forecastCard = document.createElement("div");
+        forecastCard.classList.add("forecast-card");
+
+        // fill the card with forecast information
+        forecastCard.innerHTML = `
+            <h4>${weekday}</h4>
+            <p>${day.date}</p>
+            <img src="https:${day.day.condition.icon}" alt="${day.day.condition.text}">
+            <p><strong>${day.day.condition.text}</strong></p>
+            <p>High: ${day.day.maxtemp_c}°C</p>
+            <p>Low: ${day.day.mintemp_c}°C</p>
+            <p>Rain Chance: ${day.day.daily_chance_of_rain}%</p>    
+        `;
+
+        weeklyForecast.appendChild(forecastCard);
+    });
+}
 // function to generate a helpful weather suggestion 
 function generateInsight(current, todayForecast) {}
 // function to change the page theme deoending on the weather condition
