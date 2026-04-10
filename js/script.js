@@ -48,7 +48,7 @@ async function getWeather() {
     // Get the location from the input field -JM
     const location = document.getElementById('locationInput').value;
     //API Key for WeatherAPI -JM
-    const apiKey = "d9f588f23e944e0bb6a182418260804";
+    const apiKey = "93283d31d0df4d12aca193116262003";
 
     // Clear previous error messages -JM
     document.getElementById('errorMessage').innerHTML = "";
