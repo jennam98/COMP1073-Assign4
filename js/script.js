@@ -29,6 +29,7 @@ async function getWeather() {
 <p>${data.location.region}, ${data.location.country}</p>
             <img src="${data.current.condition.icon}" alt="Weather Icon">`;
         }
+        
     // Handle any errors during fetching -JM       
     } catch (error) {
         document.getElementById('errorMessage').innerHTML = "<p>Error fetching data</p>";
@@ -42,11 +43,11 @@ async function getWeather() {
     <p>Wind: ${data.current.wind_kph} kph</p>
 `;
     // change color background according to weather condition
-if (data.current.condition.text.includes("Sunny")) {
-    document.body.style.backgroundColor = "lightyellow";
-  } else if (data.current.condition.text.includes("Rain")) {
-    document.body.style.backgroundColor = "lightblue";
-  } else {
-    document.body.style.backgroundColor = "lightgray";
-  }
+    if (condition.includes("sun")) {
+        document.body.style.background = "linear-gradient(to right, #fceabb, #f8b500)";
+      } else if (condition.includes("rain")) {
+        document.body.style.background = "linear-gradient(to right, #4e54c8, #8f94fb)";
+      } else if (condition.includes("cloud")) {
+        document.body.style.background = "linear-gradient(to right, #bdc3c7, #2c3e50)";
+      }
 }
