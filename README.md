@@ -69,3 +69,13 @@ JavaScript
 - Stored recent searches in localStorage and limited to 5 entries
 - Loaded and displayed recent searches on page load
 - Allowed users to click recent searches to quickly re-run queries
+
+Teresa's Contributions: 
+
+- Designed the CSS layout and responsive styling
+- Expanded the JavaScript to include 7-days forecast data
+- Added current weather detal cards 
+- Added the weather insight feature 
+- Added dynamic page themes 
+- Added recent searches using localStorage
+- Oranized and refined the final project structure 
