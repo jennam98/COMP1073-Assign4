@@ -249,9 +249,20 @@ function loadRecentSearches() {
         searchItem.addEventListener("click", () => {
             locationInput.value = loc;
             getWeather();
+            
+            
+            window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+            });
+
+            
+
+          
         });
         // Append the search item to the recent searches container -JM
         recentSearches.appendChild(searchItem);
+        
     });
     
 }
