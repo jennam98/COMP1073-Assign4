@@ -3,27 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>SkyScoope Weather Dashboard</title>
     <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="default-theme">
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>SkyScoope</h1>
+            <p class="tagline">A creative weather dashboard powered by WeatherAPI</p>
+        
+            <div class="search-bar">
+                <input type="text" id="locationInput" placeholder="Enter location">
+                <button onclick="getWeather()">Search</button>
+            </div>
 
-<body>
-    <header>
-        <h1>Weather App</h1>
-           
-        <input type="text" id="locationInput" placeholder="Enter location">
-        <button onclick="getWeather()">Search</button>
-
-        <div id="errorMessage"></div>
-        <div id="locationName"></div>
-   
+            <p id="errorMessage" class="error-message"></p>
+        </div>
     </header>
 
- 
+    <main class="container">
+        <section id="welcomeCard" class="card welcome-card">
+            <h2>Check the weather anywhere</h2>
+            <p>
+                Search for a city to see current weather, a full weekly forecast, and suggestions
+                based on the conditions.
+            </p>
+            <p class="doc-link">
+                Documentation used:
+                <a href="https://www.weatherapi.com/docs/" target="_blank" rel="noopener noreferrer">
+                    WeatherAPI Documentation
+                </a>"
+            </p>
+        </section>
 
-    <div id="todaysWeather"></div>
-    <div id="weeklyForecast"></div>
+        <section id="insightSection" class="card hidden">
+            <h3>Weather Insight</h3>
+            <p id="weatherInsight">Suggestions will appear here.</p>
+        </section>
 
+        <section id="forecastSection" class="hidden">
+            <h3 class="section-title">7-Day Forecast</h3>
+            <div id="weeklyForecast" class="forecast-grid"></div>
+        </section>
+
+        <section id="recentSearchesSection" class="card">
+            <h3>Recent Searches</h3>
+            <div id="recentSearches" class="recent-searches-list">
+                <p class="empty-text">No recent searches yet.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Third-Party APIs</p>
+        <p>Powered by WeatherAPI</p>
+    </footer>
 </body>
 </html>
 
