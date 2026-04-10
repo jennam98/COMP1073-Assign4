@@ -35,6 +35,9 @@ Jenna's JS section:
 - Displayed location name, region, and country from the API data
 - Added a weather icon using the API’s condition icon URL
 - Used try/catch to handle errors in retreving data
+- Stored recent searches in localStorage and limited to 5 entries
+- Loaded and displayed recent searches on page load
+- Allowed users to click recent searches to quickly re-run queries
 
 
 
