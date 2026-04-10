@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
     // load any recent searches from localStorage
-    loadRecentSearches();
+    loadRecentSearch();
 });
 
 async function getWeather() {
@@ -72,6 +72,8 @@ async function getWeather() {
             `<h2>${location}</h2>
             <p>${data.location.region}, ${data.location.country}</p>
             <img src="${data.current.condition.icon}" alt="Weather Icon">`;
+            
+            saveRecentSearches(location); // Save the search to localStorage -JM
         }
         
     // Handle any errors during fetching -JM       
@@ -135,12 +137,23 @@ function hideWeatherSections() {}
 
 
 // function to save the latest search into localStorage -JM
-function saveRecentSearches() {
+function saveRecentSearches(location) {
 
+    let searches = JSON.parse(localStorage.getItem("recentSearches")) || [];
+
+    if(!searches.includes(location)) {
+        searches.unshift(location); // Add new search to the beginning of the array
+    }
+
+    searches = searches.slice(0, 5); // Keep only the latest 5 searches
+
+    localStorage.setItem("recentSearches", JSON.stringify(searches));
+
+    loadRecentSearches(); // Update the recent searches display
 }
 
 //Function to load recent searches -JM
-function loadRecentSearch(location) {
+function loadRecentSearches() {
     // Get existing searches from localStorage or initialize an empty array -JM
     let searches = JSON.parse(localStorage.getItem("recentSearches")) || [];
 
@@ -161,8 +174,6 @@ function loadRecentSearch(location) {
     
 }
 
-
-}
 
     // show weather details like temperature and condition
     document.getElementById("todaysWeather").innerHTML = `
