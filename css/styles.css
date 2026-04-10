@@ -5,3 +5,9 @@ body{
     text-align: center;
     background-color: azure;
 }
+
+h1{
+    margin: 35px;
+    color:darkcyan;
+}
+
