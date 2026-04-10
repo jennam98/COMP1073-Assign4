@@ -13,6 +13,12 @@ h1{
 
 input{
     padding: 5px;
-    
+
+}
+/* button style*/
+
+button{
+    padding: 5px 5px;
+    cursor: pointer;
 }
 
