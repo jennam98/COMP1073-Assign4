@@ -1,4 +1,5 @@
 // Input and button elements - TH
+const locationInput = document.getElementById("locationInput");
 const searchBtn = document.getElementById("searchBtn");
 const errorMessage = document.getElementById("errorMessage");
 // Main sections that will be shown/hidden 
@@ -29,14 +30,23 @@ const weatherInsight = document.getElementById("weatherInsight");
 const weeklyForecast = document.getElementById("weeklyForecast");
 const recentSearches = document.getElementById("recentSearches");
 
-
-
-
-
+// wait for the page to load before adding event listeners
+document.addEventListener("DOMContentLoaded", () => {
+    // run the search when the button is clicked 
+    searchBtn.addEventListener("click", getWeather);
+    // also run the search when the user presses Enter inside the input
+    locationInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            getWeather();
+        }
+    });
+    // load any recent searches from localStorage
+    loadRecentSearches();
+});
 
 async function getWeather() {
     // Get the location from the input field -JM
-    const locationInput = document.getElementById('locationInput').value;
+    const location = document.getElementById('locationInput').value;
     //API Key for WeatherAPI -JM
     const apiKey = "d9f588f23e944e0bb6a182418260804";
 
